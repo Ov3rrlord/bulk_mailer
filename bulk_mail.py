@@ -21,6 +21,8 @@ def main():
 
     def pwd():
         global password
+        # you need to provide a file that contain your password. 
+        # The file needs to be in th same directory. Or you must specify its path
         with open("pass.txt", encoding="utf-8") as f:
             for line in f:
                 password = line.strip()
@@ -28,6 +30,7 @@ def main():
 
     def bulk():
         global receiver
+        # here you need to provide the file containing the mails you want to send messages to.
         with open("mails.txt", encoding="utf-8") as f:
             lines = f.readlines()
             for line in lines:
@@ -57,12 +60,12 @@ def main():
                     server.sendmail(sender, mail, message)  # new change
                 print("Message sent successfully! \n")
             except SMTPAuthenticationError as e:
-                print("Authentication failed: \n" + str(e))
+                print("Authentication failed :(: \n" + str(e))
             except Exception as e:
-                print("Something went wrong ;/ \n" + str(e))
+                print("Something went wrong ;/. Check the error message bellow to see whats going on\n" + str(e))
             finally:
                 server.quit()
-                print("Server closed")
+                print("Now th server is closed!")
 
     rest()
 
