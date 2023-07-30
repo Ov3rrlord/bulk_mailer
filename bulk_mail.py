@@ -14,8 +14,9 @@ mails = ""
 def main():
     smtp_server = "smtp.gmail.com"
     port = 465
-    print("Welcome to the bulk mail sender")
-    print("********************************")
+    print("***********************************")
+    print("* Welcome to the bulk mail sender *")
+    print("***********************************")
     sender = ""  # insert your mail here
     subject = input("Please enter the subject:")
 
