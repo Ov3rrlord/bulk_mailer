@@ -20,10 +20,10 @@ def main():
         print("* Welcome to the bulk mail sender *")
         print("***********************************")
         sender = "oversecdev@gmail.com"  # insert your mail here
-        Subject = input("Please enter the subject:")
+        subject = input("Please enter the subject:")
         
         def pwd():
-            global password, subject
+            global password
             # you need to provide a file that contain your password. 
             # The file needs to be in th same directory. Or you must specify its path
             try:
@@ -66,7 +66,7 @@ def main():
                     print("Connected successfully to the SMTP server! 🙂\n")
 
                     for mail in mails:  # new change
-                        message = f"From: {sender}\nTo: {mail}\n{Subject}\n\n" + str(content)  # new change
+                        message = f"From: {sender}\nTo: {mail}\nSubject: {subject}\n\n" + str(content)  # new change
                         print("Sending mail to:", mail)  # new change
                         server.sendmail(sender, mail, message)  # new change
                     print(f"Message sent successfully to {receiver} 🙂\n")
