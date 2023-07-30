@@ -17,7 +17,7 @@ def main():
     print("***********************************")
     print("* Welcome to the bulk mail sender *")
     print("***********************************")
-    sender = ""  # insert your mail here
+    sender = "oversecdev@gmail.com"  # insert your mail here
     subject = input("Please enter the subject:")
 
     def pwd():
@@ -55,13 +55,13 @@ def main():
                 # pwd = mk.advpass("Enter your password: ")
 
                 server.login(sender, pwd())  # new change
-                print("Server connected successfully \n")
+                print("Connected successfully to the SMTP server! 🙂\n")
 
                 for mail in mails:  # new change
                     message = f"From: {sender}\nTo: {mail}\n{subject}\n\n" + str(content)  # new change
                     print("Sending mail to:", mail)  # new change
                     server.sendmail(sender, mail, message)  # new change
-                print("Message sent successfully! 🙂\n")
+                print(f"Message sent successfully to {receiver} 🙂\n")
             except SMTPAuthenticationError as e:
                 print("Authentication failed 🙁. Check the error message bellow to see whats going on: \n" + str(e))
             except Exception as e:
