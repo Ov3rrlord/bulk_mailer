@@ -18,10 +18,10 @@ def main():
         port = 465
         print("***********************************")
         print("* Welcome to the bulk mail sender *")
-        print("***********************************"\n)
-        sender = ""  # insert your mail here
-        subject = input("Please enter the subject:")
-        
+        print("***********************************\n")
+        sender = ""  # insert your gmail address here
+        subject = input("Please enter the subject: ")
+
         def pwd():
             global password
             # you need to provide a file that contain your password. 
@@ -57,33 +57,31 @@ def main():
             with SMTP_SSL(smtp_server, port, context=context) as server:
                 # use try and except to handle exceptions
                 try:
-                    # ask for the password but masked
-                    # you can use this command instead if you 
-                    # want to type the password via your terminal without the file
-                    # pwd = mk.advpass("Enter your password: ")
+                    # ask for the password but masked you can use this command instead if you want to type the
+                    # password via your terminal without the file pwd = mk.advpass("Enter your password: ")
 
                     server.login(sender, pwd())  # new change
-                    print("Connected successfully to the SMTP server! 🙂\n")
+                    print(f"Connected successfully to the SMTP server! {0x1F63A}\n")
 
                     for mail in mails:  # new change
                         message = f"From: {sender}\nTo: {mail}\nSubject: {subject}\n\n" + str(content)  # new change
                         print("Sending mail to:", mail)  # new change
                         server.sendmail(sender, mail, message)  # new change
-                    print(f"Message sent successfully to {receiver} 🙂\n")
+                    print(f"Message sent successfully to {receiver} {chr(0x1F60E)}\n")
                 except SMTPAuthenticationError as e:
-                    print("Authentication failed 🙁. Check the error message bellow to see whats going on: \n" + str(e))
+                    print(f"Authentication failed {chr(0x1F62B)}. Check the error message bellow to see whats going on: \n" + str(e))
                 except Exception as e:
-                    print("Something went wrong 🙁. Check the error message bellow to see whats going on:\n" + str(e))
+                    print(f"Something went wrong {chr(0x1F914)}. Check the error message bellow to see whats going on:\n" + str(e))
                 finally:
                     server.quit()
                     print("Now the server is closed!")
 
     except KeyboardInterrupt:
-                    answer = input("Do you really want to exit ? yes/no: ").lower()
-                    if answer == "yes":
-                        sys.exit()
-                    elif answer == "no":
-                        main()
+        answer = input("Do you really want to exit ? yes/no: ").lower()
+        if answer == "yes":
+            sys.exit()
+        elif answer == "no":
+            main()
 
     rest()
 
