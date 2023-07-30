@@ -19,7 +19,7 @@ def main():
         print("***********************************")
         print("* Welcome to the bulk mail sender *")
         print("***********************************")
-        sender = "oversecdev@gmail.com"  # insert your mail here
+        sender = ""  # insert your mail here
         subject = input("Please enter the subject:")
         
         def pwd():
