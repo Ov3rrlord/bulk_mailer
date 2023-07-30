@@ -24,19 +24,25 @@ def main():
         global password
         # you need to provide a file that contain your password. 
         # The file needs to be in th same directory. Or you must specify its path
-        with open("pass.txt", encoding="utf-8") as f:
-            for line in f:
-                password = line.strip()
-        return password
+        try:
+            with open("pass.txt", encoding="utf-8") as f:
+                for line in f:
+                    password = line.strip()
+            return password
+        except FileNotFoundError:
+            print("You need to provide a file containing your google account app password as pass.txt")
 
     def bulk():
         global receiver
         # here you need to provide the file containing the mails you want to send messages to.
-        with open("mails.txt", encoding="utf-8") as f:
-            lines = f.readlines()
-            for line in lines:
-                receiver.append(line.strip())
-            return receiver
+        try:
+            with open("mails.txt", encoding="utf-8") as f:
+                lines = f.readlines()
+                for line in lines:
+                    receiver.append(line.strip())
+                return receiver
+        except FileNotFoundError:
+            print("You need to provide a file containing a list of mails as mails.txt")
 
     def rest():
         global password, mails  # new change
