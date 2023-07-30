@@ -66,6 +66,12 @@ def main():
                 print("Authentication failed 🙁. Check the error message bellow to see whats going on: \n" + str(e))
             except Exception as e:
                 print("Something went wrong 🙁. Check the error message bellow to see whats going on:\n" + str(e))
+            except KeyboardInterrupt:
+                answer = input("Do you really want to exit ? yes/no").lower()
+                if answer == "yes":
+                    exit()
+                elif answer == "no":
+                    main()
             finally:
                 server.quit()
                 print("Now the server is closed!")
