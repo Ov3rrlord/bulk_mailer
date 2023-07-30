@@ -79,7 +79,7 @@ def main():
                     print("Now the server is closed!")
 
     except KeyboardInterrupt:
-                    answer = input("Do you really want to exit ? yes/no").lower()
+                    answer = input("Do you really want to exit ? yes/no: ").lower()
                     if answer == "yes":
                         sys.exit()
                     elif answer == "no":
@@ -88,4 +88,4 @@ def main():
     rest()
 
 
-    main()
+main()
