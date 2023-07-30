@@ -65,7 +65,7 @@ def main():
                 print("Something went wrong ;/. Check the error message bellow to see whats going on\n" + str(e))
             finally:
                 server.quit()
-                print("Now th server is closed!")
+                print("Now the server is closed!")
 
     rest()
 
