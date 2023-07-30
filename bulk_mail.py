@@ -69,7 +69,7 @@ def main():
                         message = f"From: {sender}\nTo: {mail}\n{subject}\n\n" + str(content)  # new change
                         print("Sending mail to:", mail)  # new change
                         server.sendmail(sender, mail, message)  # new change
-                    print(f"Message sent successfully to {mail} 🙂\n")
+                    print(f"Message sent successfully to {receiver} 🙂\n")
                 except SMTPAuthenticationError as e:
                     print("Authentication failed 🙁. Check the error message bellow to see whats going on: \n" + str(e))
                 except Exception as e:
