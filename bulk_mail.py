@@ -16,7 +16,7 @@ def main():
     port = 465
     print("Welcome to the bulk mail sender")
     print("********************************")
-    sender = "oversecdev@gmail.com"
+    sender = "" # insert your mail here
     subject = input("Please enter the subject:")
 
     def pwd():
