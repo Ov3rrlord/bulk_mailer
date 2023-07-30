@@ -18,7 +18,7 @@ def main():
         port = 465
         print("***********************************")
         print("* Welcome to the bulk mail sender *")
-        print("***********************************")
+        print("***********************************"\n)
         sender = ""  # insert your mail here
         subject = input("Please enter the subject:")
         
