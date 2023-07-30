@@ -53,7 +53,7 @@ def main():
 
                 for mail in mails:  # new change
                     message = f"From: {sender}\nTo: {mail}\n{subject}\n\n" + str(content)  # new change
-                    print("Sending mail to:",mail) # new change
+                    print("Sending mail to:", mail)  # new change
                     server.sendmail(sender, mail, message)  # new change
                 print("Message sent successfully! \n")
             except SMTPAuthenticationError as e:
