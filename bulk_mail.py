@@ -1,9 +1,8 @@
 #!/bin/python3
 
-from smtplib import SMTP_SSL
-from smtplib import SMTPAuthenticationError
 import ssl
-import sys
+from smtplib import SMTPAuthenticationError
+from smtplib import SMTP_SSL
 
 # import maskpass as mk
 
@@ -70,22 +69,24 @@ def main():
                             server.sendmail(sender, mail, message)  # new change
                         print(f"Message sent successfully to {receiver} {chr(0x1F60E)}\n")
                     except SMTPAuthenticationError as e:
-                        print(f"Authentication failed {chr(0x1F62B)}. Check the error message bellow to see whats going on: \n" + str(e))
+                        print(f"Authentication failed {chr(0x1F62B)}. Check the error message bellow to see whats "
+                              f"going on: \n" + str(e))
                     except Exception as e:
-                        print(f"Something went wrong {chr(0x1F914)}. Check the error message bellow to see whats going on:\n" + str(e))
+                        print(f"Something went wrong {chr(0x1F914)}. Check the error message bellow to see whats "
+                              f"going on:\n" + str(e))
                     finally:
                         server.quit()
                         print("Now the server is closed!")
 
                 rest()
 
-    except KeyboardInterrupt:
-        answer = input("Do you really want to exit ? yes/no: ").lower()
-        if answer == "yes":
-            break
-        # sys.exit()
-        elif answer == "no":
-            continue
+        except KeyboardInterrupt:
+            answer = input("Do you really want to exit ? yes/no: ").lower()
+            if answer == "yes":
+                break
+            # sys.exit()
+            elif answer == "no":
+                continue
 
 
 main()
