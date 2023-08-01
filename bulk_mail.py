@@ -56,7 +56,8 @@ def main():
             # use try and except to handle exceptions
             try:
                 # ask for the password but masked you can use this command instead if you want to type the
-                # password via your terminal without the file pwd = mk.advpass("Enter your password: ")
+                # password via your terminal without the file ù
+                # pwd = mk.advpass("Enter your password: ")
 
                 server.login(sender, pwd())  # new change
                 print(f"Connected successfully to the SMTP server! {chr(0x1F63A)}\n")
