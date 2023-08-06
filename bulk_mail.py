@@ -3,8 +3,9 @@
 import ssl
 from smtplib import SMTPAuthenticationError
 from smtplib import SMTP_SSL
+import threading
 
-# import maskpass as mk
+# ? import maskpass as mk
 
 password = ""  # new change
 receiver = []  # new change
@@ -17,7 +18,7 @@ def main():
     print("***********************************")
     print("* Welcome to the bulk mail sender *")
     print("***********************************\n")
-    sender = ""  # insert your gmail address here
+    sender = "oversecdev@gmail.com"  # insert your gmail address here
     subject = input("Please enter the subject: ")
 
     def pwd():
@@ -80,4 +81,7 @@ def main():
     rest()
 
 
-main()
+
+x = threading.Thread(target=main)
+x.start()
+x.join()
