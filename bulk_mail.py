@@ -22,7 +22,7 @@ def main():
 
     def pwd():
         global password
-        # you need to provide a file that contain your password.
+        #  you need to provide a file that contain your password.
         # The file needs to be in th same directory. Or you must specify its path
         try:
             with open("pass.txt", encoding="utf-8") as f:
@@ -34,7 +34,7 @@ def main():
 
     def bulk():
         global receiver
-        # here you need to provide the file containing the mails you want to send messages to.
+        # ? here you need to provide the file containing the mails you want to send messages to.
         try:
             with open("mails.txt", encoding="utf-8") as f:
                 lines = f.readlines()
