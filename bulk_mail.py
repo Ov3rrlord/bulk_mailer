@@ -19,7 +19,7 @@ def main():
     print("* Welcome to the bulk mail sender *")
     print("***********************************\n")
     sender = ""  # insert your gmail address here
-    subject = input("Please enter the subject: ")
+    
 
     def pwd():
         global password
@@ -48,6 +48,7 @@ def main():
     def rest():
         global password, mails  # new change
         # receiver = input("Print the receiver email here: ")
+        subject = input("Please enter the subject: ")
         content = input("Enter your message here: ")
         context = ssl.create_default_context()
         mails = bulk()
@@ -66,18 +67,28 @@ def main():
                 for mail in mails:  # new change
                     message = f"From: {sender}\nTo: {mail}\nSubject: {subject}\n\n" + str(content)  # new change
                     print("Sending mail to:", mail)  # new change
-                    server.sendmail(sender, mail, message)  # new change
+                    server.sendmail(sender, mail, message)# new change
+                    print("="*50)
+
                 print(f"Message sent successfully to {receiver} {chr(0x1F60E)}\n")
             except SMTPAuthenticationError as e:
+                print("="*50)
                 print(f"Authentication failed {chr(0x1F62B)}. Check the error message bellow to see whats "
                       f"going on: \n" + str(e))
+                print("="*50)
             except Exception as e:
+                print("="*50)
                 print(f"Something went wrong {chr(0x1F914)}. Check the error message bellow to see whats "
                       f"going on:\n" + str(e))
+                print("="*50)
+
             finally:
                 server.quit()
                 print("Now the server is closed!")
-
+                print("="*50)
+                print("Thank you for using the bulk mail sender")
+                print("="*50)
+                
     rest()
 
 
