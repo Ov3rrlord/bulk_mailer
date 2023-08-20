@@ -1,5 +1,6 @@
 #!/bin/python3
-
+import os
+import sys
 import ssl
 from smtplib import SMTPAuthenticationError
 from smtplib import SMTP_SSL
@@ -11,14 +12,14 @@ password = ""  # new change
 receiver = []  # new change
 mails = ""
 
-
+os.system("clear")
 def main():
     smtp_server = "smtp.gmail.com"
     port = 465
     print("***********************************")
     print("* Welcome to the bulk mail sender *")
     print("***********************************\n")
-    sender = ""  # insert your gmail address here
+    sender = "oversecdev@gmail.com"  # insert your gmail address here
     
 
     def pwd():
@@ -92,7 +93,13 @@ def main():
     rest()
 
 
-
-x = threading.Thread(target=main)
-x.start()
-x.join()
+try:
+    x = threading.Thread(target=main)
+    x.start()
+    x.join()
+except KeyboardInterrupt:
+    os.system("clear")
+    print("="*50)
+    print("Cancelled by user")
+    print("="*50)
+    sys.exit()
