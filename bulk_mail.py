@@ -94,12 +94,13 @@ def main():
 
 
 try:
-    x = threading.Thread(target=main)
-    x.start()
-    x.join()
+    l = threading.Thread(target=main)
+    l.start()
+    l.join()
 except KeyboardInterrupt:
     os.system("clear")
     print("="*50)
     print("Cancelled by user")
     print("="*50)
     sys.exit()
+        
